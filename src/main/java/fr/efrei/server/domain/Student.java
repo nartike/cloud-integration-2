@@ -19,6 +19,11 @@ public class Student {
     public Student() {
     }
 
+    public Student(String name, Integer age) {
+        this.name = name;
+        this.age = age;
+    }
+
     public Integer getId() {
         return id;
     }
