@@ -2,10 +2,7 @@ package fr.efrei.server.web.rest;
 
 import fr.efrei.server.domain.Student;
 import fr.efrei.server.service.StudentService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,5 +24,20 @@ public class StudentRessource {
     @GetMapping("/students/{id}")
     public Student getStudent(@PathVariable Integer id){
         return studentService.findById(id);
+    }
+
+    @PostMapping("/students")
+    public Student createStudent(@RequestBody Student student){
+        return studentService.createStudent(student);
+    }
+
+    @PutMapping("/students")
+    public Student updateStudent(@RequestBody Student student){
+        return studentService.updateStudent(student);
+    }
+
+    @DeleteMapping("/students/{id}")
+    public void deleteStudent(@PathVariable Integer id){
+        studentService.deleteStudent(id);
     }
 }

@@ -3,10 +3,13 @@ package fr.efrei.server.domain;
 import jakarta.persistence.*;
 
 @Entity
+@SequenceGenerator(
+        name = "sequenceGenerator",
+        sequenceName = "RTDS_ADSINPUT_SEQ",
+        allocationSize = 1)
 public class Student {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
-    @SequenceGenerator(name = "sequenceGenerator")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "sequenceGenerator")
     private Integer id;
 
     private String name;
